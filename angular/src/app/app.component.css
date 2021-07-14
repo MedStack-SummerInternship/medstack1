@@ -1,0 +1,8 @@
+.navbar
+{
+    background-color: #3bd1c7;
+}
+.active:hover{
+    text-decoration: underline;
+
+}
