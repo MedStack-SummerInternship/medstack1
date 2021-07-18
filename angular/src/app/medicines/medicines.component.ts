@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-medicines',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicinesComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private dsobj:UserService,private router:Router) { }
+  meds:[];
   ngOnInit(): void {
   }
+ 
+ onAyur()
+ { 
+   
+  this.router.navigateByUrl(`/medicines/ayurvedic`)
+    
+ }
+ onNutrition()
+ {
+  this.router.navigateByUrl(`/medicines/nutrition`)
+ }
+ onRegular(){
+  this.router.navigateByUrl(`/medicines/regular`)
+ }
+ onVitamins(){
+  this.router.navigateByUrl(`/medicines/vitamins`)
+ }
+ onHemeo(){
+  this.router.navigateByUrl(`/medicines/homeo`)
+ }
 
 }

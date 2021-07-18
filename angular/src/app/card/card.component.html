@@ -1,0 +1,16 @@
+<div class="container my-5">
+    <div class="row row-cols-1 row-cols-lg-4 row-cols-sm-2 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let med of health">
+            <div class="card text-dark h-100">
+                <img src={{med.image}} class="card-img-top d-block mx-auto" width="100px" height="150px" alt="...">
+                <div class="card-body">
+                    <p class="card-title fw-bold">{{med.name}}</p>
+                    <p class="card-text">MRP:{{med.price}}</p>
+                    
+                    <button class="btn btn-sm btn-success float-end" (click)="onCart(med)">add to cart</button>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
