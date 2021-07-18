@@ -1,0 +1,17 @@
+<div class="container my-5">
+<div class="row row-cols-1 row-cols-lg-4 row-cols-sm-2 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let med of meds">
+        <div class="card text-dark ">
+            <img src={{med.image}} class="card-img-top d-block mx-auto" width="40px" height="150px" alt="...">
+            <div class="card-body">
+                <p class="card-title fw-bold">{{med.name}}</p>
+                <p class="card-text">Price:{{med.price}}</p>
+                
+                <button class="btn btn-sm btn-success float-end" (click)="onCart(med)" >add to cart</button>
+               
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
