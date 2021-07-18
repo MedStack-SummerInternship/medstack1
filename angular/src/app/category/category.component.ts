@@ -10,6 +10,7 @@ import { UserService } from '../user.service';
 export class CategoryComponent implements OnInit {
   meds=[]
   type:string
+  searchItem:string="";
   constructor(private dsobj:UserService,private route: ActivatedRoute,private router:Router) { 
     this.type=this.route.snapshot.params.type
     console.log(this.type)
