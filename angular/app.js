@@ -13,7 +13,7 @@ let body={
     from:'medstack96@gmail.com',
     to:'telagathotiswapnika9@gmail.com',
     subject:'hello',
-    html:<h1>hello</h1>
+    html:'<h1>hello</h1>'
 }
 
 transporter.sendMail(body,(err,result)=>{
