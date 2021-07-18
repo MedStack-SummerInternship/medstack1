@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,private dsobj:UserService) { }
 
   ngOnInit(): void {
   }
 
+  onCreate(){
+    console.log("working")
+    this.router.navigateByUrl('/register')
+  }
+
+  onLogin(ref:NgForm)
+  {
+    console.log(ref.value)
+    this.dsobj.onlogin(ref.value).subscribe(
+      res=>{
+        if(res.message=="success")
+        {
+          console.log(res)
+          this.router.navigateByUrl(`/user-profile/${res.username}`) 
+        this.dsobj.status=true
+        localStorage.setItem("email",ref.value.email)
+        localStorage.setItem("name",res.username)
+      }
+      else if(res.message="no account withis maid id register to login")
+      {
+        this.router.navigateByUrl("/register")
+      }
+        else{alert(res.message)}
+      },
+      err=>{
+        console.log("error in login=",err)
+      }
+    )
+  }
 }
