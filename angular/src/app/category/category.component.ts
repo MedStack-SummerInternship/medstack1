@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
 
@@ -7,24 +7,32 @@ import { UserService } from '../user.service';
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
+
 export class CategoryComponent implements OnInit {
+  @Output() pageChange: EventEmitter<number>;
   meds=[]
   type:string
-  searchItem:string="";
+  totitems:number;
+  searchTerm:string="";
   constructor(private dsobj:UserService,private route: ActivatedRoute,private router:Router) { 
     this.type=this.route.snapshot.params.type
     console.log(this.type)
     this.dsobj.onMed(this.type).subscribe(
       res=>{
+      
         this.meds=res.message;
-        console.log(this.meds)
+        this.totitems=this.meds.length;
+        console.log(this.meds,this.totitems)
         //this.dsobj.medsData(this.meds)
         //console.log(res.type)
        
       },
       err=>{console.log("error in ayurvedic",err)}
     )
-  }
+  } 
+  
+  p: number = 1;
+  collection: any[] = this.meds;
 
   ngOnInit(): void {
   }

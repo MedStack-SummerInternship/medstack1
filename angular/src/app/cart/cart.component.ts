@@ -42,4 +42,20 @@ updateCart:any;
     )
     console.log("ind deleting",this.products[ind])
   }
+
+email:string
+orderProducts:any;
+  //order confirmation
+  onOrder()
+  {
+    this.email=localStorage.getItem("email")
+    this.orderProducts={"email":this.email,"products":this.cart.cartProducts}
+    console.log(this.orderProducts)
+    this.dsobj.mailSent(this.orderProducts).subscribe(
+      res=>{
+        alert("order confirmed")
+        console.log(res)},
+      err=>{console.log("error in order=",err)}
+    )
+  }
 }

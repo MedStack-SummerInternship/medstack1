@@ -4,7 +4,6 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'search'
 })
 export class SearchPipe implements PipeTransform {
-
   transform(gameList:any[],searchTerm:string): any[] {
     if(!gameList || !searchTerm){
         return gameList;
@@ -16,4 +15,3 @@ export class SearchPipe implements PipeTransform {
   }
 
 }
-

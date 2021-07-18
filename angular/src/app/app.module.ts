@@ -16,8 +16,8 @@ import { RegisterComponent } from './register/register.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CategoryComponent } from './category/category.component';
 import { CardComponent } from './card/card.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { SearchPipe } from './search.pipe';
-
 
 const routes: Routes = []
 @NgModule({
@@ -41,10 +41,10 @@ const routes: Routes = []
     AppRoutingModule,
     FormsModule ,
     HttpClientModule,
-    
+    NgxPaginationModule,
     RouterModule.forRoot(routes,{useHash:true})
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,CategoryComponent]
 })
 export class AppModule { }
