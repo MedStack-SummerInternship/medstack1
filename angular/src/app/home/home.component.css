@@ -1,0 +1,30 @@
+* { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
+
+.carousel {
+  background: #EEE;
+  
+}
+
+.carousel-cell {
+  width: 855px;
+  height: 363px;
+  margin-right: 10px;
+  margin-left: 10px;
+
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+
+
+/* cell number */
+.carousel-cell:before {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    line-height: 1;
+    margin:auto;
+    width: 100%; 
+  
+}
