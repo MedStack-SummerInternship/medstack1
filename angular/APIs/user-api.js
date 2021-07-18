@@ -2,7 +2,10 @@
 const exp=require('express')
 const userapi=exp.Router(); //creates mini route 
 
+//.env and email sending
+require('dotenv').config();
 
+const mailer = require("nodemailer");
 userapi.use(exp.json())
 //import mongoclient
 const mc=require("mongodb").MongoClient;
@@ -138,5 +141,45 @@ userapi.put("/updateProduct/:name",expresserr(async(req,res)=>
         res.send({message:"cart updated"})
     }
 }))
+
+
+
+//mail confirmation after ordering
+
+userapi.post('/orderConfirmation',(req,res)=>{
+
+    console.log("request came")
+    let user=req.body
+    console.log("in order user-api",user)
+    const transporter = mailer.createTransport({
+        host:"smtp.gmail.com",
+        port:587,
+        secure:false,
+        service:'gmail',
+        auth:{
+            user:process.env.EMAIL_USER,
+            pass:process.env.EMAIL_PASS
+        }
+    })
+    
+    let body={
+        from:'medstack96@gmail.com',
+        to:user.email,
+        subject:'hello',
+        html:'<h1>hello</h1>'
+    }
+    
+    transporter.sendMail(body,(err,result)=>{
+        if(err){
+            console.log(err);
+            return false;
+        }
+        console.log(result);
+        
+    })
+})
+
+
+
 //export this object 
 module.exports=userapi
