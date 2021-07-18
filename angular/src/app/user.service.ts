@@ -68,4 +68,9 @@ export class UserService {
 {
   return this.hc.put(`/user/updateProduct/${name}`,updatedCart)
 }
+
+mailSent(user):Observable<any>
+{ console.log(user)
+  return this.hc.post('/user/orderConfirmation',user)
+}
 }

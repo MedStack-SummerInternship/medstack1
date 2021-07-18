@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -22,6 +23,7 @@ const routes: Routes = []
 @NgModule({
   declarations: [
     AppComponent,
+    
     HomeComponent,
     FooterComponent,
     MedicinesComponent,
