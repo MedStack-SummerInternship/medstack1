@@ -1,5 +1,5 @@
 <div class="container my-5">
-    <input class="pe-5 pt-3 form-control" type="text" [(ngModel)]="searchTerm" placeholder="search" style="width: 300px;height:40px;font-size: 20px;" >
+    <div class="pb-5" > <input class="p-3 shadow-sm form-control text-uppercase d-block mx-auto" type="text" [(ngModel)]="searchTerm" placeholder="search" style="width: 300px;height:40px;font-size: 20px;" ></div>
 <div class="row row-cols-1 row-cols-lg-4 row-cols-sm-2 row-cols-md-3 g-4">
 
     <div class="col" *ngFor="let med of meds| search:searchTerm| paginate: { 
@@ -7,17 +7,18 @@
     currentPage: p,
     totalItems:totitems
  }">
-        <div class="card text-dark ">
-            <img src={{med.image}} class="card-img-top d-block mx-auto" width="40px" height="150px" alt="...">
+        <div class="card text-dark h-100  shadow bg-white rounded ">
+            <img src={{med.image}} class="w-50 h-100 d-block m-auto"  alt="...">
             <div class="card-body">
-                <p class="card-title fw-bold">{{med.name}}</p>
-                <p class="card-text">Price:{{med.price}}</p>
+                <p class="card-title fw-bold"> {{med.name}}</p>
+                <p class="card-text"> MRP : {{med.price}}/-</p>
                 
-                <button class="btn btn-sm btn-success float-end" (click)="onCart(med)" >add to cart</button>
+                <button class=" shadow btn btn-sm btn-success float-end" (click)="onCart(med)" ><i class="fas fa-cart-plus"></i> Add to cart</button>
                
             </div>
         </div>
     </div>
 </div>
 </div>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<div class="text-center">
+<pagination-controls (pageChange)="p = $event"></pagination-controls></div>

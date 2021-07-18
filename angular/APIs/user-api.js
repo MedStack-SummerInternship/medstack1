@@ -166,7 +166,7 @@ userapi.post('/orderConfirmation',(req,res)=>{
         from:'medstack96@gmail.com',
         to:user.email,
         subject:'hello',
-        html:'<h1>hello</h1>'
+        html:'<h3>Hello Customer,Thank You for choosing MedStack! </h3><p id="demo"></p><script>const d = new Date();document.getElementById("demo").innerHTML = d;</script>'
     }
     
     transporter.sendMail(body,(err,result)=>{
