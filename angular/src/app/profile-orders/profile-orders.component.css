@@ -25,6 +25,7 @@
   	.table{
 		width:100%; 
 		border-collapse:collapse; 
+        background: #138592;
 	}
     .table th{
         padding: 10px;
@@ -39,7 +40,7 @@
 	}
 	
     .table tr:hover {
-          background-color: #ffff99;
+          background-color: #ffb8a7;
     }
 
     .card{
