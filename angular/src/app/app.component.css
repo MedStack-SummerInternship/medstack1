@@ -1,9 +1,11 @@
 .navbar
 {
-    background-color: #0c6772;
+    background-color: #138592;
 }
-.active:hover{
-    text-decoration: underline;
-
+.order{
+    background-color: white;
+    
 }
-
+.order:hover{
+    background-color: rgb(245, 237, 237);
+}

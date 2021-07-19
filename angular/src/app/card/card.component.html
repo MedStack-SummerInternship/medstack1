@@ -1,6 +1,11 @@
 <div class="container my-5">
+    <input class="pe-5 pt-3 form-control" type="text" [(ngModel)]="searchTerm" placeholder="search" style="width: 300px;height:40px;font-size: 20px;" >
     <div class="row row-cols-1 row-cols-lg-4 row-cols-sm-2 row-cols-md-3 g-4">
-        <div class="col" *ngFor="let med of health">
+        <div class="col" *ngFor="let med of health|search:searchTerm| paginate: { 
+            itemsPerPage: 4,
+            currentPage: p,
+            totalItems:totitems
+         }">
             <div class="card text-dark h-100">
                 <img src={{med.image}} class="card-img-top d-block mx-auto" width="100px" height="150px" alt="...">
                 <div class="card-body">
@@ -14,3 +19,4 @@
         </div>
     </div>
     </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>

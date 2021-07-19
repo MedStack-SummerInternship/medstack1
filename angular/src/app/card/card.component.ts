@@ -10,20 +10,25 @@ export class CardComponent implements OnInit {
 
   health=[]
   type:string
+  totitems:number;
+  searchTerm:string="";
   constructor(private dsobj:UserService,private route: ActivatedRoute,private router:Router) { 
     this.type=this.route.snapshot.params.type
     console.log(this.type)
     this.dsobj.onHealth(this.type).subscribe(
       res=>{
         this.health=res.message;
-        console.log(this.health)
+        this.totitems=this.health.length;
+        console.log(this.health,this.totitems)
+    
         //this.dsobj.medsData(this.health)
         //console.log(res.type)
        
       },
       err=>{console.log("error in ayurvedic",err)}
     )
-  }
+  } p: number = 1;
+  collection: any[] = this.health;
 
   ngOnInit(): void {
   }
