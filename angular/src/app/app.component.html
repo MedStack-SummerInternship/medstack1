@@ -17,10 +17,10 @@
         </ul>
         <ul class="navbar-nav ms-auto mb-2  fs-5 text-white">
           <li class="nav-item me-2" *ngIf="dob.status">
-            <a class="nav-link active text-white" aria-current="page" routerLink="profile" routerLinkActive="active">profile</a>
+            <a class="nav-link active text-white" aria-current="page" routerLink="profile" routerLinkActive="active" style="font-size:27px;font-family:poppins,sans-serif;">Profile</a>
           </li>
           <li class="nav-item me-2" *ngIf="dob.status">
-            <a class="nav-link active text-white" aria-current="page" routerLink="cart" routerLinkActive="active" style="font-size:20px;"><i class="fas fa-shopping-cart"></i>Cart</a>
+            <a class="nav-link active text-white" aria-current="page" routerLink="cart" routerLinkActive="active" style="font-size:25px;font-family:poppins,sans-serif;"><i class="fas fa-shopping-cart me-2"></i>Cart</a>
           </li>
           
           
@@ -28,7 +28,7 @@
             <a class="nav-link active text-white" aria-current="page" routerLink="login" routerLinkActive="active" style="font-size:20px;font-family:poppins,sans-serif;"><img src="assets/contact.png" width="38px" style="margin-right: 2px;"/>SIGN IN/SIGN UP</a>
           </li>
           <li class="nav-item me-2" *ngIf="dob.status" (click)="dob.userLogout()">
-            <a class="nav-link active text-white" aria-current="page" routerLink="login" routerLinkActive="active">Logout</a>
+            <a class="nav-link active text-white" aria-current="page" routerLink="login" routerLinkActive="active" style="font-size:25px;font-family:poppins,sans-serif;">Logout</a>
           </li>
           
         </ul>
