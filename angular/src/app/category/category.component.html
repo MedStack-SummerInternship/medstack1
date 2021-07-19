@@ -6,9 +6,12 @@
     <div class="col" *ngFor="let med of meds| search:searchTerm| paginate: { 
     itemsPerPage: 4,
     currentPage: p,
-    totalItems:totitems}">
+    totalItems:totitems
+ };let ind=index">
         <div class="card h-100 shadow">
-            <img src={{med.image}} class="card-img-top w-25 h-100 d-block m-auto mt-2" alt="...">
+            <a class="btn h-100" (click)="onImg(ind,med)">
+                <img src={{med.image}} class="card-img-top w-25 h-100 d-block m-auto mt-2" alt="...">
+            </a>
             <div class="card-body">
                 <h5 class="card-title mb-4">{{med.name}}</h5>
                 <div class="d-flex justify-content-between ">

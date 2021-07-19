@@ -2,7 +2,7 @@
     <div class="container ">
         <h1 class="text-center head py-2">Cart</h1>
         <br>
-        <div class="d-flex justify-content-center" *ngIf="cart.cartProducts.length===0">
+        <div class="d-flex justify-content-center" *ngIf="cart.cartProducts.length==0" >
             <br>
             <br>
             <br>
@@ -27,6 +27,6 @@
             </div>
         </div>
     </div>
-    <button class="btn btn-primary orderb mt-4 fw-bold" (click)="onOrder()" >Order Now</button>
+    <button class="btn orderb mt-4 fw-bold" (click)="onOrder()" *ngIf="cart.cartProducts.length!=0">Order Now</button>
 </div>
    

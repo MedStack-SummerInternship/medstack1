@@ -10,6 +10,8 @@ import { RegisterComponent } from './register/register.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CategoryComponent } from './category/category.component';
 import { CardComponent } from './card/card.component';
+import { ProductComponent } from './product/product.component';
+import { ProfileOrdersComponent } from './profile-orders/profile-orders.component';
 const routes: Routes = [
   {path:"home",component:HomeComponent},
   {path:"cart",component:CartComponent},
@@ -17,8 +19,11 @@ const routes: Routes = [
   {path:'user-profile/:name',component:UserProfileComponent},
   {path:"medicines",component:MedicinesComponent},
   {path:"register",component:RegisterComponent},
-  {path:"medicines/:type",component:CategoryComponent},
+  {path:"medicines/:type",component:CategoryComponent },
+  {path:"product/:name",component:ProductComponent},
+  {path:"profile",component:ProfileOrdersComponent},
   {path:"healthCare-products/:type",component:CardComponent},
+  {path:"healthCare-products/:type/:name",component:ProductComponent},
   {path:"healthcare-products",component:HealthcareProductsComponent},
   {path:'',redirectTo:'/home',pathMatch:'full'}
 
