@@ -110,6 +110,8 @@ userapi.post("/add-to-cart",expresserr(async(req,res)=>{
 }))
 
 
+
+
 //geetting products added to cart by user
 userapi.get("/getCart/:username",expresserr(async(req,res)=>{
     let proObj=req.app.get("cartObj")
@@ -146,11 +148,31 @@ userapi.put("/updateProduct/:name",expresserr(async(req,res)=>
 
 //mail confirmation after ordering
 
-userapi.post('/orderConfirmation',(req,res)=>{
-
+userapi.post('/orderConfirmation',expresserr(async(req,res)=>{
+    //orders
     console.log("request came")
     let user=req.body
     console.log("in order user-api",user)
+    let proObj=req.app.get("ordersobj")
+    let userProColObj=await proObj.findOne({email:user.email})
+    if(userProColObj==null)
+    {
+        //create new obj and insert products into a list and add this obj to collection
+        let products=[]
+        products=user.products
+        let newobjtocol={email:user.email,orders:products,name:user.name}
+        await proObj.insertOne(newobjtocol)
+        res.send({message:"order confirmed,see profile for latest orders"})
+        
+    }
+    else
+    {   products=user.products
+        let newobjtocol={email:user.email,orders:products,name:user.name}
+        await proObj.updateOne({email:newobjtocol.email},{$set:{...newobjtocol}})
+        res.send({message:"order confirmed,see profile for latest orders"})
+    }
+
+    //mail sending
     const transporter = mailer.createTransport({
         host:"smtp.gmail.com",
         port:587,
@@ -177,8 +199,42 @@ userapi.post('/orderConfirmation',(req,res)=>{
         console.log(result);
         
     })
-})
+    
 
+    
+    //res.send("order confirmed")
+}))
+
+
+userapi.get("/getOne/:id",expresserr(async(req,res)=>{
+ 
+    let idPro=req.params.id
+    let hlobj=req.app.get("medobj")
+    console.log(idPro)
+    let med=await hlobj.findOne({name:idPro})
+    console.log(med)
+    res.send(med)
+
+
+}))
+
+
+//geetting products added to cart by user
+userapi.get("/getOrder/:email",expresserr(async(req,res)=>{
+    let proObj=req.app.get("ordersobj")
+    //console.log("orders getting ")
+    let un=req.params.email
+    //console.log(un)
+    let cartObj=await proObj.findOne({email:un})
+    if(cartObj==null)
+    {
+        res.send({message:"order empty"})
+    }
+    else{
+        //console.log("in get orders",cartObj)
+        res.send({message:cartObj})
+    }
+}))
 
 
 //export this object 

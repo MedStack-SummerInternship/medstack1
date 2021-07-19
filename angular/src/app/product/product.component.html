@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row"  *ngFor="let a of med">
+        <div class="col">
+            <img src="{{a.image}}" alt="{{a.name}}">
+        </div>
+        <div class="col">
+            <h1>{{a.name}}</h1>
+            <p>{{a.des}}</p>
+            <p>{{a.price}}</p>
+            <button (click)="onCart(med)">add to cart</button>
+        </div>
+    </div>
+</div>
+

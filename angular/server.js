@@ -28,10 +28,12 @@ mc.connect(databaseurl,{useNewUrlParser:true,useUnifiedTopology:true},(err,clien
         health=meddb.collection("healthcare")
         users=meddb.collection("users")
         cart=meddb.collection("cart")
+        orders=meddb.collection("orders")
         app.set("userobj",users)
         app.set("medobj",medcol)
         app.set("healthobj",health)
         app.set("cartObj",cart)
+        app.set("ordersobj",orders)
         console.log("database connection successfull")
     }
 })

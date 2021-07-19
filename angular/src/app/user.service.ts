@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class UserService {
   status:any
   medicines=[]
+  order:any=false;
   constructor(private hc:HttpClient) {
     if (localStorage.getItem("name")!=null)
     {
@@ -70,7 +71,22 @@ export class UserService {
 }
 
 mailSent(user):Observable<any>
-{ console.log(user)
+{ console.log("in user service mail sent",user)
   return this.hc.post('/user/orderConfirmation',user)
 }
+medByName:any=[];
+
+medicinesWithId(name)
+{  console.log(name)
+ 
+  return this.hc.get(`/user/getOne/${name}`)
+}
+
+//orders
+
+orders(email):Observable<any>
+{ console.log("in user-service-orders",email)
+  return this.hc.get(`/user/getOrder/${email}`)
+}
+
 }

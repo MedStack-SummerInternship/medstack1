@@ -18,6 +18,8 @@ import { CategoryComponent } from './category/category.component';
 import { CardComponent } from './card/card.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { SearchPipe } from './search.pipe';
+import { ProductComponent } from './product/product.component';
+import { ProfileOrdersComponent } from './profile-orders/profile-orders.component';
 
 const routes: Routes = []
 @NgModule({
@@ -34,7 +36,9 @@ const routes: Routes = []
     UserProfileComponent,
     CategoryComponent,
     CardComponent,
-    SearchPipe
+    SearchPipe,
+    ProductComponent,
+    ProfileOrdersComponent
   ],
   imports: [
     BrowserModule,

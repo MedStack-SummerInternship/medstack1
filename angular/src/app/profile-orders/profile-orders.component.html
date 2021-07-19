@@ -1,0 +1,24 @@
+<div class="container">
+<h5 class="text-center"> welcome {{cart.name}}</h5>
+
+<h5>latest orders</h5>
+<h5 *ngIf="!orderStatus">
+    no latest orders 
+</h5>
+<table class="table text-center w-75 mx-auto mt-5 text-white bg-secondary " >
+    <thead>
+        <th>Name</th>
+        <th>MRP</th>
+        <th>image</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of cart.orders;let ind=index">
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td><img src="{{product.image}}" alt="" width="50px"></td>
+           
+        </tr>
+    </tbody>
+</table>
+</div>
+
