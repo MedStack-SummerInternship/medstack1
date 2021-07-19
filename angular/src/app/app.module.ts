@@ -20,6 +20,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { SearchPipe } from './search.pipe';
 import { ProductComponent } from './product/product.component';
 import { ProfileOrdersComponent } from './profile-orders/profile-orders.component';
+import { ProductHealthComponent } from './product-health/product-health.component';
 
 const routes: Routes = []
 @NgModule({
@@ -38,7 +39,8 @@ const routes: Routes = []
     CardComponent,
     SearchPipe,
     ProductComponent,
-    ProfileOrdersComponent
+    ProfileOrdersComponent,
+    ProductHealthComponent
   ],
   imports: [
     BrowserModule,

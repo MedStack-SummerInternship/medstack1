@@ -218,6 +218,18 @@ userapi.get("/getOne/:id",expresserr(async(req,res)=>{
 
 }))
 
+userapi.get("/getCare/:id",expresserr(async(req,res)=>{
+ 
+    let idPro=req.params.id
+    let hlobj=req.app.get("healthobj")
+    console.log(idPro)
+    let med=await hlobj.findOne({name:idPro})
+    console.log(med)
+    res.send(med)
+
+
+}))
+
 
 //geetting products added to cart by user
 userapi.get("/getOrder/:email",expresserr(async(req,res)=>{

@@ -50,4 +50,13 @@ export class CardComponent implements OnInit {
     )
   }
   }
+
+
+  medName:string
+  onImg(id,med)
+  { console.log(id,med)
+    this.dsobj.medByName=med
+    localStorage.setItem("medicineName",med.name)
+    this.router.navigateByUrl("healthcare/"+id)
+  }
 }

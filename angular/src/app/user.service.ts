@@ -74,12 +74,18 @@ mailSent(user):Observable<any>
 { console.log("in user service mail sent",user)
   return this.hc.post('/user/orderConfirmation',user)
 }
-medByName:any=[];
+medByName:string;
 
 medicinesWithId(name)
 {  console.log(name)
  
   return this.hc.get(`/user/getOne/${name}`)
+}
+
+healthWithId(name)
+{  console.log(name)
+ 
+  return this.hc.get(`/user/getCare/${name}`)
 }
 
 //orders
@@ -88,5 +94,7 @@ orders(email):Observable<any>
 { console.log("in user-service-orders",email)
   return this.hc.get(`/user/getOrder/${email}`)
 }
+
+
 
 }

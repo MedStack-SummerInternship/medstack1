@@ -1,6 +1,6 @@
 <div class="container my-5">
-    <div class="container bg-secondary text-white">
-        <h1 class="text-center ">Cart</h1>
+    <div class="container ">
+        <h1 class="text-center head py-2">Cart</h1>
         <br>
         <div class="d-flex justify-content-center" *ngIf="cart.cartProducts.length==0" >
             <br>
@@ -13,21 +13,19 @@
             </h1>
         </div>
     </div>
-    <div class="row row-cols-2 row-cols-lg-5 row-cols-sm-2 row-cols-md-3 g-4 " *ngIf="cart.cartProducts.length!=0">
+    <div class="row row-cols-1 row-cols-lg-5 row-cols-sm-2 row-cols-md-3 g-4 " *ngIf="cart.cartProducts.length!=0">
         <div class="col" *ngFor="let med of cart.cartProducts;let ind=index">
-            <div class="card text-dark">
-                <img src={{med.image}} class="card-img-top" width="100px" height="150px" alt="...">
+            <div class="card h-100 shadow">
+                <img src={{med.image}} class="card-img-top w-25 h-100 d-block m-auto mt-2" alt="...">
                 <div class="card-body">
-                    <p class="card-title fw-bold">{{med.name}}</p>
-                    <div class="d-flex justify-content-evenly">
-                    <p class="card-text">MRP:{{med.price}}</p>
-                        <button (click)="ondelete(ind)" class="d-flex justify-content-evenly"><i class="fas fa-trash"></i></button>
-                    
+                    <h5 class="card-title mb-4">{{med.name}}</h5>
+                    <div class="d-flex justify-content-between ">
+                        <h6 class="card-text">MRP:  <i class="fas fa-rupee-sign"></i>{{med.price}}</h6>
+                        <button (click)="ondelete(ind)" class="bin"><i class="fas fa-trash"></i></button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <button class="btn btn-primary" (click)="onOrder()" *ngIf="cart.cartProducts.length!=0">Order Now</button>
+    <button class="btn orderb mt-4 fw-bold" (click)="onOrder()" *ngIf="cart.cartProducts.length!=0">Order Now</button>
 </div>
-   

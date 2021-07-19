@@ -59,12 +59,8 @@ cartObj:any;
   { console.log(id,med)
     this.dsobj.medByName=med
     localStorage.setItem("medicineName",med.name)
-    var i = 0, strLength = med.name.length;
-for(i; i < strLength; i++) {
- med.name = med.name.replace(" ", "-");
-}
 console.log("route=",med.name)
-    this.router.navigateByUrl("product/"+med.name)
+    this.router.navigateByUrl("product/"+id)
   }
 
 
