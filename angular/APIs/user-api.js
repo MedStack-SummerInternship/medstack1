@@ -188,7 +188,7 @@ userapi.post('/orderConfirmation',expresserr(async(req,res)=>{
         from:'medstack96@gmail.com',
         to:user.email,
         subject:'hello',
-        html:'<h1>hello</h1>'
+        html:'<h1>Hello Customer,Thank You for choosing MedStack!</h1>'
     }
     
     transporter.sendMail(body,(err,result)=>{

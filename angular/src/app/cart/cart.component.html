@@ -16,7 +16,7 @@
     <div class="row row-cols-1 row-cols-lg-5 row-cols-sm-2 row-cols-md-3 g-4 " *ngIf="cart.cartProducts.length!=0">
         <div class="col" *ngFor="let med of cart.cartProducts;let ind=index">
             <div class="card h-100 shadow">
-                <img src={{med.image}} class="card-img-top w-50 h-100 d-block m-auto mt-2" alt="...">
+                <img src={{med.image}} class="card-img-top w-25 h-100 d-block m-auto mt-2" alt="...">
                 <div class="card-body">
                     <h5 class="card-title mb-4">{{med.name}}</h5>
                     <div class="d-flex justify-content-between ">
