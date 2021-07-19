@@ -8,23 +8,27 @@ import { UserService } from '../user.service';
 })
 export class CartComponent implements OnInit {
 cart:any
+cartStatus:any=false
 name:string;
 products:[]
   constructor(private dsobj:UserService) { 
-    this.dsobj.getCartProducts(localStorage.getItem("name")).subscribe(
-      res=>{this.cart=res.message;
-        console.log("in cart",this.cart)
-     
-      console.log(this.cart.cartProducts)
-   },
-      err=>{console.log("error in library",err)}
-
-    )
+    
 }
 
 
   ngOnInit(): void {
     this.name=localStorage.getItem("name")
+    this.dsobj.getCartProducts(localStorage.getItem("name")).subscribe(
+      res=>{this.cart=res.message;
+        console.log(res)
+        if(this.cart!="Cart empty")
+          this.cartStatus=true
+        console.log("in cart",this.cart)
+      console.log(this.cart.cartProducts)
+   },
+      err=>{console.log("error in library",err)}
+
+    )
   }
 updateCart:any;
   ondelete(ind)
@@ -45,16 +49,19 @@ updateCart:any;
 
 email:string
 orderProducts:any;
+username:string
   //order confirmation
   onOrder()
-  {
+  { this.dsobj.order=true
+    //alert("order confirmed go to your profile to see latest order")
     this.email=localStorage.getItem("email")
-    this.orderProducts={"email":this.email,"products":this.cart.cartProducts}
-    console.log(this.orderProducts)
+    this.username=localStorage.getItem("name")
+    this.orderProducts={"email":this.email,"products":this.cart.cartProducts,name:this.username}
+    console.log("in order function in cart",this.orderProducts)
     this.dsobj.mailSent(this.orderProducts).subscribe(
       res=>{
-        alert("order confirmed")
-        console.log(res)},
+        alert(res.message)
+        console.log(res.message)},
       err=>{console.log("error in order=",err)}
     )
   }

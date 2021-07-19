@@ -6,9 +6,11 @@
     itemsPerPage: 4,
     currentPage: p,
     totalItems:totitems
- }">
+ };let ind=index">
         <div class="card text-dark ">
+            <a class="btn " (click)="onImg(ind,med)">
             <img src={{med.image}} class="card-img-top d-block mx-auto" width="40px" height="150px" alt="...">
+        </a>
             <div class="card-body">
                 <p class="card-title fw-bold">{{med.name}}</p>
                 <p class="card-text">Price:{{med.price}}</p>

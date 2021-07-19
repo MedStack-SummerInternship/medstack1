@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         if(res.message=="success")
         {
           console.log(res)
-          this.router.navigateByUrl(`/user-profile/${res.username}`) 
+          this.router.navigateByUrl(`profile/${res.username}`) 
         this.dsobj.status=true
         localStorage.setItem("email",ref.value.email)
         localStorage.setItem("name",res.username)
