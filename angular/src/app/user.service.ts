@@ -97,4 +97,10 @@ orders(email):Observable<any>
 
 
 
+onlyOrders(email):Observable<any>
+{ console.log("in user-service-onlyOrders",email)
+  return this.hc.get(`/user/onlyOrders/${email}`)
+}
+
+
 }

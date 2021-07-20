@@ -249,5 +249,24 @@ userapi.get("/getOrder/:email",expresserr(async(req,res)=>{
 }))
 
 
+//getting orders array
+
+//geetting products added to cart by user
+userapi.get("/onlyOrders/:email",expresserr(async(req,res)=>{
+    let proObj=req.app.get("ordersobj")
+    //console.log("orders getting ")
+    let un=req.params.email
+    //console.log(un)
+    let cartObj=await proObj.findOne({email:un})
+    if(cartObj==null)
+    {
+        res.send({message:"order empty"})
+    }
+    else{
+        //console.log("in get orders",cartObj)
+        res.send({message:cartObj.orders})
+    }
+}))
+
 //export this object 
 module.exports=userapi

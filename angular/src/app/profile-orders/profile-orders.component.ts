@@ -8,8 +8,15 @@ import { UserService } from '../user.service';
 export class ProfileOrdersComponent implements OnInit {
   cart:any
   orderStatus:any=false
+  ordersArray:any
+  totalPrice:any=0
   
   constructor(public dsobj:UserService) {
+   
+  
+   }
+
+  ngOnInit(): void {
     this.dsobj.orders(localStorage.getItem("email")).subscribe(
       res=>{
         this.cart=res.message
@@ -19,11 +26,22 @@ export class ProfileOrdersComponent implements OnInit {
       },
       err=>{console.log("error in profile orders=",err)}
     )
-   }
 
-  ngOnInit(): void {
-    
+    this.dsobj.onlyOrders(localStorage.getItem("email")).subscribe(
+      res=>{
+        this.ordersArray=res.message
+        console.log("in onlyorders",this.ordersArray)
+        for(let i of this.ordersArray)
+      {
+        console.log(i.price)
+        this.totalPrice=this.totalPrice+i.price
+      }
+      console.log(this.totalPrice)
+      },
+      err=>{console.log("error in only orders",err)}
+    )
   
+    
   }
 
 }
