@@ -21,6 +21,7 @@ import { SearchPipe } from './search.pipe';
 import { ProductComponent } from './product/product.component';
 import { ProfileOrdersComponent } from './profile-orders/profile-orders.component';
 import { ProductHealthComponent } from './product-health/product-health.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = []
@@ -41,7 +42,8 @@ const routes: Routes = []
     SearchPipe,
     ProductComponent,
     ProfileOrdersComponent,
-    ProductHealthComponent
+    ProductHealthComponent,
+    NotFoundComponent
   ],
   imports: [
 
