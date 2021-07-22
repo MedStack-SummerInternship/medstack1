@@ -1,28 +1,28 @@
 <div class="container">
-<h5 class="cart text-center mt-5 ms-5"> Welcome {{cart.name}}</h5>
+<h5 class="cart text-center mt-5"> Welcome {{cart.name}}</h5>
 
-<div class="container-1 mt-4">
-    <div class="row ms-4">
+<div class="container-1 mt-4 mb-5">
+    <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-10">
-                 <div class="card shadow ">
-                            <div class="card-body text-center shadow">
-                                <p><img class=" img-fluid" src="assets\p-1.png" alt="card image"></p>
-                                <h4 class="card-title" style="font-size: 25px;">{{cart.name}}</h4>
-                                <p class="card-text" style="font-size: 25px;font-weight: 500;">{{cart.email}}</p>
-                            </div>
-                        </div>
+                <div class="card shadow ">
+                    <div class="card-body text-center">
+                        <p><img class=" img-fluid" src="assets\p-1.png" alt="card image"></p>
+                        <h3 class="card-title" >{{cart.name}}</h3>
+                        <h5 class="card-text fw" >{{cart.email}}</h5>
                     </div>
-                    </div>
-                    </div>
+                </div>
+        </div>
+    </div>
+</div>
             
                     
                 
 
+<hr>
 
 
 
-
- <h5 class="latest mt-5">Your latest order..</h5>
+ <h5 class="latest mt-5">Latest Order Details :</h5>
 <h5 *ngIf="!orderStatus">
     no latest orders 
 </h5> 
@@ -40,8 +40,10 @@
        
            
         </tr>
-        <tr  class="fw-bold"><td style="color: rgb(102, 21, 21);font-size: 25px;" >Total</td>
-            <td style="color: rgb(102, 21, 21);font-size: 25px;"><i class="fas fa-rupee-sign"></i> {{totalPrice}}</td></tr>
+        <tr  class="fw-bold tot">
+            <td style="color: rgb(102, 21, 21);font-size: 25px; background-color: #ffb8a7;" >Total</td>
+            <td style="color: rgb(102, 21, 21);font-size: 25px; background-color: #ffb8a7;"><i class="fas fa-rupee-sign"></i> {{totalPrice}}</td>
+        </tr>
     </tbody>
 </table>
 </div>

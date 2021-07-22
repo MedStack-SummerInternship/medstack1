@@ -7,7 +7,7 @@
     font-size: 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
-    color: green;
+ 
 } 
   .img1{
       display: block;
@@ -39,9 +39,6 @@
 		background: white;
 	}
 	
-    .table tr:hover {
-          background-color: #ffb8a7;
-    }
 
     .card{
         width: 500px;
@@ -51,6 +48,6 @@
         transform: scale(1.05);
     }
 
-
-
-  
+    .tot{
+        background-color: #ffb8a7;
+    }

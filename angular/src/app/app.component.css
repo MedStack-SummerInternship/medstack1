@@ -9,3 +9,9 @@
 .order:hover{
     background-color: #ffb8a7;
 }
+.order:active{
+    background-color: #ffb8a7;
+}
+active{
+    text-decoration: underline;
+}

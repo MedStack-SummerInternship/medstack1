@@ -187,8 +187,8 @@ userapi.post('/orderConfirmation',expresserr(async(req,res)=>{
     let body={
         from:'medstack96@gmail.com',
         to:user.email,
-        subject:'hello',
-        html:'<h1>Hello Customer,Thank You for choosing MedStack!</h1>'
+        subject:'Order Confirmation',
+        html:'<h1>Hello Customer, Thank You for chosing MedStack!</h1> <h3>This is a confirmation mail to let you know that your order has been successfully deployed.</h3> <h3>For further details please visit the profile page of our site.</h3> <h3>Stay safe and healthy!</h3>'
     }
     
     transporter.sendMail(body,(err,result)=>{
