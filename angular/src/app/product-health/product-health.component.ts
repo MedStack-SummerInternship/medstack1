@@ -1,23 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
-
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  selector: 'app-product-health',
+  templateUrl: './product-health.component.html',
+  styleUrls: ['./product-health.component.css']
 })
-export class ProductComponent implements OnInit {
+export class ProductHealthComponent implements OnInit {
+
+  constructor(private dsobj:UserService,private ar:ActivatedRoute,private router:Router) { }
+  healthWithId
   med:any;
   id:any
-  constructor(private dsobj:UserService,private ar:ActivatedRoute,private router:Router) { 
-    }
-
   ngOnInit(): void {
     this.med=[]
     this.id=localStorage.getItem("medicineName");
     console.log("in product id=",this.id)
-    this.dsobj.medicinesWithId(this.id).subscribe
+    this.dsobj.healthWithId(this.id).subscribe
     (
       res=>{this.med.push(res)
       console.log("in product res=",res)},
@@ -44,8 +43,5 @@ export class ProductComponent implements OnInit {
     )
   }
   }
-
-
- 
 
 }

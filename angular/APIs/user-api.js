@@ -187,8 +187,8 @@ userapi.post('/orderConfirmation',expresserr(async(req,res)=>{
     let body={
         from:'medstack96@gmail.com',
         to:user.email,
-        subject:'hello',
-        html:'<h1>hello</h1>'
+        subject:'Order Confirmation',
+        html:'<h1>Hello Customer, Thank You for chosing MedStack!</h1> <h3>This is a confirmation mail to let you know that your order has been successfully deployed.</h3> <h3>For further details please visit the profile page of our site.</h3> <h3>Stay safe and healthy!</h3>'
     }
     
     transporter.sendMail(body,(err,result)=>{
@@ -218,6 +218,18 @@ userapi.get("/getOne/:id",expresserr(async(req,res)=>{
 
 }))
 
+userapi.get("/getCare/:id",expresserr(async(req,res)=>{
+ 
+    let idPro=req.params.id
+    let hlobj=req.app.get("healthobj")
+    console.log(idPro)
+    let med=await hlobj.findOne({name:idPro})
+    console.log(med)
+    res.send(med)
+
+
+}))
+
 
 //geetting products added to cart by user
 userapi.get("/getOrder/:email",expresserr(async(req,res)=>{
@@ -236,6 +248,25 @@ userapi.get("/getOrder/:email",expresserr(async(req,res)=>{
     }
 }))
 
+
+//getting orders array
+
+//geetting products added to cart by user
+userapi.get("/onlyOrders/:email",expresserr(async(req,res)=>{
+    let proObj=req.app.get("ordersobj")
+    //console.log("orders getting ")
+    let un=req.params.email
+    //console.log(un)
+    let cartObj=await proObj.findOne({email:un})
+    if(cartObj==null)
+    {
+        res.send({message:"order empty"})
+    }
+    else{
+        //console.log("in get orders",cartObj)
+        res.send({message:cartObj.orders})
+    }
+}))
 
 //export this object 
 module.exports=userapi
