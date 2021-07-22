@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("name",res.username)
       }
       else if(res.message="no account withis maid id register to login")
-      {
+      { alert("register to login")
         this.router.navigateByUrl("/register")
       }
         else{alert(res.message)}
