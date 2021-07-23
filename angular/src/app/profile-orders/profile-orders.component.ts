@@ -10,13 +10,16 @@ export class ProfileOrdersComponent implements OnInit {
   orderStatus:any=false
   ordersArray:any
   totalPrice:any=0
-  
+  name:any
+  mail:any
   constructor(public dsobj:UserService) {
    
   
    }
 
   ngOnInit(): void {
+    this.name = localStorage.getItem("name")
+    this.mail = localStorage.getItem("email")
     this.dsobj.orders(localStorage.getItem("email")).subscribe(
       res=>{
         this.cart=res.message

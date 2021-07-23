@@ -16,7 +16,7 @@
                     <div class="mb-4">
                         <label for="name" class="form-label" style=" font-size: 18px;font-weight: bold;"><span class="teal">*</span>Name</label>
                         <input type="text" class="form-control" id="name" placeholder="Enter Display name" name="username" required ngModel #refname="ngModel"> 
-                        <p class="warnings" *ngIf="(formref.submitted || refname.touched)">*
+                        <p class="warnings" *ngIf="(formref.submitted || refname.touched)&&(refname.errors?.required)">*
                           name is required</p>
                       </div>
                     <div class="mb-4">
