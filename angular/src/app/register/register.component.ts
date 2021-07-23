@@ -22,6 +22,9 @@ export class RegisterComponent implements OnInit {
     {
       this.pass=true
     }
+    else if(temp.username==""||temp.email==""||temp.password==""||temp.confirm==""){
+      alert("enter all fields")
+    }
     else
     {
       this.pass=false

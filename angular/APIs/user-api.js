@@ -50,7 +50,7 @@ userapi.post("/login",expresserr(async(req,res)=>{
     let user =await colobj.findOne({email:userobj.email})
     if(user==null)
     {
-        res.send({message:"no account withis maid id register to login"})
+        res.send({message:"no account with this mail id register to login"})
     }
     else{
         //compare password
