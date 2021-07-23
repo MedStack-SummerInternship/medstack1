@@ -18,9 +18,13 @@ export class RegisterComponent implements OnInit {
   {
     console.log("form submitted")
     let temp=ref.value;
+
     if(temp.password!=temp.confirm)
     {
       this.pass=true
+    }
+    else if(temp.username==""||temp.email==""||temp.password==""||temp.confirm==""){
+      alert("enter required fields")
     }
     else
     {
