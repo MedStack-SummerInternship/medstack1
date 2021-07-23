@@ -47,7 +47,9 @@ userapi.post("/createuser",expresserr(async(req,res)=>{
 userapi.post("/login",expresserr(async(req,res)=>{
     let colobj=req.app.get("userobj")
     let userobj=req.body
+    //console.log(req.body)
     let user =await colobj.findOne({email:userobj.email})
+    //console.log(user)
     if(user==null)
     {
         res.send({message:"no account with this mail id register to login"})
@@ -56,7 +58,8 @@ userapi.post("/login",expresserr(async(req,res)=>{
         //compare password
         let r= await bcryptjs.compare(userobj.password,user.password)
         if(r==false)
-        {res.send({message:"INVALID PASSWORD"})}
+        { 
+            res.send({message:"INVALID PASSWORD"})}
         else{
             res.send({message:"success",username:user.name})
         }
