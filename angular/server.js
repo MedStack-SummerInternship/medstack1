@@ -10,8 +10,10 @@ app.use(exp.static(path.join(__dirname,'./dist/angular')))
 //import mongoclient
 const mc=require("mongodb").MongoClient;
 
+require('dotenv').config();
+
 //database cloud connection string 
-const databaseurl="mongodb+srv://backend:backend@sowmya.mjms4.mongodb.net/backend?retryWrites=true&w=majority"
+const databaseurl=process.env.DATABASE_URL
 
 //connect to Db
 mc.connect(databaseurl,{useNewUrlParser:true,useUnifiedTopology:true},(err,client)=>{
